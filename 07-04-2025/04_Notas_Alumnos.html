@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="nuevaNota();">Nueva nota</button>
+    <br>
+    <button onclick="totalAprobados();">Aprobados</button>
+    <br>
+    <button onclick="calcularMedia();">Nota Media</button>
+    <br>
+    <button onclick="notaMasAlta();">Nota mas alta</button>
+    <br>
+    <button onclick="notaMasBaja();">Nota mas baja</button>
+
+
+<script>
+    //array con las notas
+
+    let notas=[7,5,2,4,9,6,1,3,4,8,7,6];
+
+    function nuevaNota(){
+        let notas;
+        do{
+            notas=prompt("Introduce nueva nota:")
+        
+        // || significa OR
+        }while(notas<0||notas>10);
+        // "push" metodo para añadir un valor al final del array
+        notas.push(parseInt(notas));
+    }
+
+    function totalAprobados(){
+        let totalAprobados=0;
+        /* for(let i=0;i<=notas.length;1++)
+            if(notas[i]>=5){
+
+                // ++ es igual a variable+1
+                totalAprobados++;
+            }
+
+            // NO PRINTEA EL ALERT.........
+            alert("Total aprobados: "+totalAprobados);
+        }*/
+
+
+        for(let n of notas){
+            if(n>=5){
+                totalAprobados++;
+            }
+        }
+        alert("Total aprobados: "+totalAprobados)
+    }
+
+    function calcularMedia(){
+    /*   for (i=0;i<=notas.length;i++){
+            let media=0;
+            media=sumaNotas+notas(i)/notas.length
+        }
+        alert("Media de notas: "+media)
+    */
+
+        let media=0;
+        for (let n of notas){
+            media=media+n;
+        }
+        media=media/notas.length
+        alert("Media de notas: "+media)
+        
+    
+    }
+
+    function notaMasAlta(){
+        let max=notas[0];
+        for (let n of notas){
+            if(n>max){
+                max=n;
+            }
+        }
+        alert("Nota mas alta:"+max)
+    }
+
+    function notaMasBaja(){
+        let min=notas[0];
+        for (let n of notas){
+            if (n<min){
+                min=n;
+            }
+        }
+        alert("Nota mas baja:"+min)
+    }
+
+</script>
+
+
+
+</body>
+</html>

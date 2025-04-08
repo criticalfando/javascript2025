@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="sumar();">Sumar</button><button onclick="multiplicar();">Multiplicar</button><button onclick="factorial();">Factorial</button>
+
+    <script>
+
+        function sumar(){
+            // Solicito la introduccion de los numeros 
+            let n1=prompt("Introduce el primer numero");
+            let n2=prompt("Introduce el segundo numero");
+
+            // Como se utiliza "+" para concatenar necesitas utilizar el parseInt para que los detecte como numeros.
+            let suma=parseInt(n1)+parseInt(n2);
+            alert("La suma es "+suma);
+            
+            // Para hacer todo en una linea se podria hacer:
+            // alert("La suma es "+parseInt(prompt("Introduce el primer numero"))+parseInt(prompt("Introduce el segundo numero")))
+            };
+
+        function multiplicar(){
+            // Solicito la introduccion de los numeros 
+            let n1=prompt("Introduce el primer numero");
+            let n2=prompt("Introduce el segundo numero");
+
+            // Como no se puede multiplicar textos, JS asimila que son numeros y los multiplica
+            let multi=n1*n2;
+            alert("La suma es "+multi);
+        }
+
+        function factorial(){
+            let n=prompt("Introduce numero:");
+            let resultado=1;
+            // Esto es un bucle
+            // Esto es una variable de control que empieza por lo que le indiques
+            for(let i=1; i<=n;i++){
+                resultado=resultado*i;
+            }
+            alert("El factorial de "+n+" es: "+resultado);
+        }
+
+    </script>
+</body>
+</html>

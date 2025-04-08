@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    function nuevaNota(){
+        /*
+        //se pide una nota que debe esta comprendida entre 0 y 10
+        //si no está en ese rango, se debe volver a pedir
+        let nota;
+        do{
+            nota=prompt("Introduce nueva nota😊;
+        }while(nota<0||nota>10);
+        */
+        let nota=document.getElementById("nota").value;
+        //solo guardamos la nota si está comprendida entre 0 y 10
+        // && significa 
+        if(nota>=0&&nota<=10){
+            notas.push(parseInt(nota));
+        }else{
+            alert("Nota no válida!!!");
+        }
+       
+    } 
+</script>
+
+
+
+</body>
+</html>

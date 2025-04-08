@@ -1,0 +1,53 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma_Pares</title>
+</head>
+<body>
+
+
+    
+<button onclick="sumarPares();">Sumar Pares</button>
+
+
+<script>
+
+    function sumarPares(){
+        let numero1=prompt("Introduce el primer numero:")
+        let numero2=prompt("Introduce el segundo numero:")
+        let suma=0
+        let mayor,menor;
+        if(n1>n2){
+            mayor=n1;
+            menor=n2;
+         }else{
+            mayor=n2;
+            menor=n1;
+        }
+
+        for (let i=menor;i<=mayor;i++){
+
+            // Si i dividido por 2 da de resto cero
+            // == Es, tiene que ser exactamente igual, a 0
+            if (i%2==0){
+
+                suma=suma+1;
+            }
+            
+        }
+
+        //NO PRINTEA :(
+        alert("La suma es: "+suma);
+    }
+
+</script>
+
+
+
+</body>
+</html>

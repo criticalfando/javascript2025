@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Introduce un valor:<input id="num1" type="number"><br>
+    <br>
+    Introduce un segundo valor:<input id="num2" type="number"><br>
+    <br>
+    <button onclick="sumarNumero();">Sumar</button> <button onclick="restarNumero();">Restar</button> <button onclick="multiplicarNumero();">Multiplicar</button> <button onclick="dividirNumero();">Dividir</button>
+    <br>
+    <br>
+    <div id="result"> </div>
+<script>
+    function sumarNumero(){
+ 
+        // Para obtener el valor de un id, se utiliza document.getELementByID("id")
+        let n1=document.getElementById("num1")
+        let n2=document.getElementById("num2")
+        // A traves de la propiedad "Value" de un objeto input, accedemos a su contenido.
+        resultadoSuma=parseInt(n1.value)+parseInt(n2.value);
+        document.getElementById("result").innerHTML="<b>La suma es: "+resultadoSuma+".<b>";
+
+    }
+    function restarNumero(){
+
+        let n1=document.getElementById("num1")
+        let n2=document.getElementById("num2")
+        resultadoResta=parseInt(n1.value)-parseInt(n2.value);
+        document.getElementById("result").innerHTML="<b>La resta es: "+resultadoResta+".<b>"
+
+    }
+    function multiplicarNumero(){
+
+        let n1=document.getElementById("num1")
+        let n2=document.getElementById("num2")
+        resultadoMulti=parseInt(n1.value)*parseInt(n2.value);
+        document.getElementById("result").innerHTML="<b>La multiplicacion es: "+resultadoMulti+".<b>"
+
+
+    }
+    function dividirNumero(){
+
+        let n1=document.getElementById("num1")
+        let n2=document.getElementById("num2")
+        resultadoDivi=parseInt(n1.value)/parseInt(n2.value);
+        document.getElementById("result").innerHTML="<b>La division es: "+resultadoDivi+".<b>";
+
+    }
+
+</script>
+
+</body>
+</html>
