@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input id="limite" type="number" placeholder="Introduce el límite superior"><button onclick="contar();">Contar</button>
+        <div id="valor"></div>
+        <br><br>
+        
+<script>
+    let n=0
+    // para definir el sentido de la cuenta
+    let ascendente=true
+        function contar(){
+            let limiteInferior=0;
+            let limiteSuperior=document.getElementById("limite").value;
+            
+            // si es ascendente sumamos sino restamos
+
+            if(ascendente==true){
+
+                // contamos si no ha llegado al limite
+
+                if(n<limiteSuperior){
+                    n++;
+                }else{ // si se ha llegado al limite, se descuenta y se cambia el sentido
+                    n--;
+                    ascendente=false
+                }
+
+            }else{
+                // descontamos si no hemos llegado al limite inferior
+                if(n>limiteInferior){
+                    n--;
+                }else{
+                    n++;
+                    ascendente=true
+                }
+            }
+            document.getElementById("valor").innerHTML=`<h1>${n}</h1>`;
+            console.log(n);
+        }
+</script>
+
+</body>
+</html>
