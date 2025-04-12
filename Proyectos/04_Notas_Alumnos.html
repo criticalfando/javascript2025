@@ -22,15 +22,16 @@
 
     let notas=[7,5,2,4,9,6,1,3,4,8,7,6];
 
+    // Usar una variable diferente a "notas" (nuevaNota) para que nuevaNota introduzca el valor del prompt al array "notas"
     function nuevaNota(){
-        let notas;
+        let nuevaNota;
         do{
-            notas=prompt("Introduce nueva nota:")
+            nuevaNota=prompt("Introduce nueva nota:")
         
         // || significa OR
         }while(notas<0||notas>10);
         // "push" metodo para añadir un valor al final del array
-        notas.push(parseInt(notas));
+        notas.push(parseInt(nuevaNota));
     }
 
     function totalAprobados(){

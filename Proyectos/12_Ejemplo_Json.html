@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nombre: <input type="text" id="nombre">
+    <br><br>
+    Edad: <input type="number" id="edad">
+    <br><br>
+    Curso: <input type="text" id="curso">
+    <br><br>
+    Nota: <input type="number" id="nota">
+    <br><br>
+    <button onclick="guardarDatos();">Guardar</button>  <button onclick="visualizarDatos();">Visualizar</button>
+    <br><br>
+    <div id="resultado"></div>
+
+<script>
+    let jsonAlumno;
+
+    function guardarDatos(){
+        let textoNombre=document.getElementById("nombre").value;
+        let numeroEdad=document.getElementById("edad").value;
+        let nombreCurso=document.getElementById("curso").value;
+        let notaAlumno=document.getElementById("nota").value;
+
+        // .value para obtener el valor dentro del input
+
+        jsonAlumno={"nombre":textoNombre,"edad":numeroEdad,"curso":nombreCurso,"nota":notaAlumno}
+    }
+
+    function visualizarDatos(){
+        console.log(jsonAlumno)
+        let frase="Te llamas: "+jsonAlumno.nombre+". Tienes "+jsonAlumno.edad+" años."+" Estas en el curso: "+jsonAlumno.curso+". Y has sacado un "+jsonAlumno.nota+" en la evaluacion."
+        document.getElementById("resultado").innerHTML=frase;
+    }
+
+</script>
+
+
+</body>
+</html>

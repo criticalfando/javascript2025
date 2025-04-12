@@ -15,20 +15,16 @@
     <button onclick="notaMasAlta();">Nota mas alta</button> <div id="dNotaMasAlta"></div>
     <br><br>
     <button onclick="notaMasBaja();">Nota mas baja</button> <div id="dNotaMasBaja"></div>
-
-
 <script>
-
     let notas=[7,5,2,4,9,6,1,3,4,8,7,6];
-
     function nuevaNota(){
-        let notas;
         do{
             alert("Nota introducida")
-        }while(notas<0||notas>10);
-        notas.push(parseInt(document.getElementById("nota")));
-    }
 
+            // Operador OR (||) evalua dos expresiones y devuelve "true" si una es verdadera. Si ambas son erroneas, devuelve "false"
+        }while(notas<0||notas>10);
+        notas.push(parseInt(document.getElementById("nota").value));
+    }
     function totalAprobados(){
         let totalAprobados=0;
        for(let n of notas){
@@ -38,7 +34,6 @@
         }
         alert("Total aprobados: "+totalAprobados)
     }
-
     function calcularMedia(){
        let media=0;
         for (let n of notas){
@@ -49,7 +44,6 @@
         
     
     }
-
     function notaMasAlta(){
         let max=notas[0];
         for (let n of notas){
@@ -59,7 +53,6 @@
         }
         alert("Nota mas alta:"+max)
     }
-
     function notaMasBaja(){
         let min=notas[0];
         for (let n of notas){
@@ -69,10 +62,6 @@
         }
         alert("Nota mas baja:"+min)
     }
-
 </script>
-
-
-
 </body>
 </html>
