@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <style>
+    h1{
+        margin: 5px 0;
+    }
+    h2 {
+        margin: 10px 0;
+    }
     h4 {
-        margin: 5px 0; /* Reduce los márgenes verticales */
+        margin: 0px 0;
+    }
+    #divMovimientos p {
+        margin: 0px 0;
     }
 </style>
 <head>
@@ -13,23 +21,27 @@
 
 </head>
 <body>
-    <h1>Interfaz bancaria</h1>
+    <h1>INTERFAZ BANCARIA</h1>
     <hr>
-    Dinero inicial: <input id="inputDineroInicial" type="number"> <button onclick="guardarSaldoInicial();">Guardar saldo inicial</button>
-    <br><br>
+    <br>
+    <b>DINERO INICIAL:</b> <input id="inputDineroInicial" type="number"> <button onclick="guardarSaldoInicial();">Guardar</button>
+    <br>
     <hr>
-    <h2>Panel de ingresos/retiradas</h2>
+    <h2>PANEL DE INGRESOS/RETIRADAS</h2>
+    <br>
     <input id="inputDineroAIngresarOExtraer" type="number">
     <button onclick="ingresarDinero();">Ingresar</button>
     <button onclick="retirarDinero();">Extraer</button>
     <hr>
-    <button onclick="actualizarDineroTotal();">Actualizar dinero total</button>   <button onclick="mostrarMovimientos();">Mostrar movimientos :))))))</button>
-    <hr>
+    <h2>ESTADISTICAS DE LA CUENTA:</h2>
+    <!-- span es como div, no reserva toda la linea para si mismo, por lo tanto no fuerza el salto de linea -->
     <h4>Dinero Total: <span id="divDineroTotal"></span></h4>
     <h4>Dinero Inicial: <span id="divDineroInicial"></span></h4>
     <h4>Dinero Ingresado: <span id="divDineroIngresado"></span></h4>    
     <h4>Dinero Retirado: <span id="divDineroRetirado"></span></h4>
     <hr> 
+    <h2>LISTA DE MOVIMIENTOS:</h2>
+    <br>
     <div id="divMovimientos"></div>
 
 <script>
@@ -47,6 +59,8 @@
         document.getElementById("divDineroInicial").innerHTML=`${dineroInicial}`;
         document.getElementById("inputDineroInicial").value="";
 
+        actualizarDineroTotal();
+        actualizarMovimientos("Inicial", dineroInicial)
         document.querySelector('button[onclick="guardarSaldoInicial();"]').disabled = true
     }
 
@@ -70,6 +84,8 @@
         console.log(sumaIngresos)
         document.getElementById("divDineroIngresado").innerHTML = `${sumaIngresos}`;
 
+        actualizarDineroTotal();
+        actualizarMovimientos("Ingreso", dineroAIngresar)
     }
 
     function retirarDinero(){
@@ -92,6 +108,9 @@
         console.log(sumaRetiros)
 
         document.getElementById("divDineroRetirado").innerHTML = `${sumaRetiros}`;
+        
+        actualizarDineroTotal();
+        actualizarMovimientos("Retirada", dineroAExtraer)
     }
 
     function actualizarDineroTotal(){
@@ -108,24 +127,21 @@
         document.getElementById("divDineroTotal").innerHTML = `${dineroTotal}`;
     }
 
-    function mostrarMovimientos(){
+    function actualizarMovimientos(tipo, cantidad){
+        let divMovimientos=document.getElementById("divMovimientos");
+        let textoMovimiento;
 
-        actualizarDineroTotal();
-        console.log("Dinero total actualizado para mostrar los movimientos.")
+        if(tipo === "Inicial"){
+            textoMovimiento = "<b>"+tipo+"</b>: +"+cantidad;
+        }else{if(tipo === "Ingreso"){
+            textoMovimiento = "<b>"+tipo+"</b>: +"+cantidad;
+            }else{
+            textoMovimiento = "<b>"+tipo+"</b>: -"+cantidad;
+            }
+        }
 
-        let dineroInicial=parseInt(document.getElementById("divDineroInicial").innerHTML) || 0;
-        let sumaIngresos=parseInt(document.getElementById("divDineroIngresado").innerHTML) || 0;
-        let sumaRetiros=parseInt(document.getElementById("divDineroRetirado").innerHTML) || 0;
-        let dineroTotal=parseInt(document.getElementById("divDineroTotal").innerHTML) || 0;
-
-
-        
-
-
+        divMovimientos.innerHTML += "<p>"+textoMovimiento+"</p>"
     }
-
-
-
 
 </script>
 
