@@ -1,26 +1,131 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-    
-    Saldo inicial: <div id="saldo inicial"></div>       <button>Grabar</button>
-    <br><br>
-    <button>Ingresar</button><br>
+    <h1>Interfaz bancaria</h1>
+    <hr>
+    <h3>Dinero Total: <button onclick="actualizarDineroTotal();">Actualizar</button></h3>
+    <div id="divDineroTotal"></div> 
+    <h3>Dinero Inicial:</h3>
+    <div id="divDineroInicial"></div>
+    <h3>Dinero Ingresado:</h3>
+    <div id="divDineroIngresado"></div>
+    <h3>Dinero Retirado:</h3>
+    <div id="divDineroRetirado"></div>
+    <hr>
     <br>
-                                            <input id="cantidadAIngresar">
+    Dinero inicial: <input id="inputDineroInicial" type="number"> <button onclick="guardarSaldoInicial();">Guardar saldo inicial</button>
+    <hr>
     <br>
-    <button>Extraer</button><br>
-
-    <button>Saldo y movimiento</button>
-    <div id="saldoTotal"></div>
-    Movimientos:<br>
-    <div id="movimientosRealizados"></div>
+    <input id="inputDineroAIngresarOExtraer" type="number">
+    <button onclick="ingresarDinero();">Ingresar</button>
+    <button onclick="retirarDinero();">Extraer</button>
+    <hr>
+    <button onclick="mostrarMovimientos();">Mostrar dinero total y movimientos :))))))</button>
+    <hr>
+    <div id="dineroTotal"></div>
+    <div id="saldoTexto"></div>
 
 <script>
+    let dineroInicial = 0;
+    let dineroTotal = 0;
+    let ingresosDinero=[];
+    let retirosDinero=[];
+
+    function guardarSaldoInicial(){
+        dineroInicial=document.getElementById("inputDineroInicial").value || 0;
+
+        console.log("Dinero inicial:")
+        console.log(dineroInicial);
+
+        document.getElementById("divDineroInicial").innerHTML=`${dineroInicial}`;
+        document.getElementById("inputDineroInicial").value="";
+
+        document.querySelector('button[onclick="guardarSaldoInicial();"]').disabled = true
+    }
+
+    function ingresarDinero(){
+        let inputDineroAIngresarOExtraer = document.getElementById("inputDineroAIngresarOExtraer");
+        let dineroAIngresar=parseInt(inputDineroAIngresarOExtraer.value) || 0;
+        let dineroInicial=document.getElementById("inputDineroInicial")
+
+        ingresosDinero.push(dineroAIngresar)
+
+        console.log("Ingresos de dinero:")
+        console.log(ingresosDinero)
+
+        let sumaIngresos=0;
+
+        for(let i=0;i<ingresosDinero.length;i++){
+            sumaIngresos += parseInt(ingresosDinero[i]) || 0;
+        }
+
+        console.log("Total de dinero ingresado:")
+        console.log(sumaIngresos)
+        document.getElementById("divDineroIngresado").innerHTML = `${sumaIngresos}`;
+
+    }
+
+    function retirarDinero(){
+        let inputDineroAIngresarOExtraer = document.getElementById("inputDineroAIngresarOExtraer");
+        let dineroAExtraer=parseInt(inputDineroAIngresarOExtraer.value) || 0;
+        let dineroInicial=document.getElementById("inputDineroInicial")
+
+        retirosDinero.push(dineroAExtraer)
+
+        console.log("Retiros de dinero:")
+        console.log(retirosDinero)
+
+        let sumaRetiros=0;
+
+        for(let i=0;i<retirosDinero.length;i++){
+            sumaRetiros += parseInt(retirosDinero[i]) || 0;
+        }
+
+        console.log("Total de dinero retirado:")
+        console.log(sumaRetiros)
+
+        document.getElementById("divDineroRetirado").innerHTML = `${sumaRetiros}`;
+    }
+
+    function actualizarDineroTotal(){
+
+        let dineroInicial=parseInt(document.getElementById("divDineroInicial").innerHTML) || 0;
+        let sumaIngresos=parseInt(document.getElementById("divDineroIngresado").innerHTML) || 0;
+        let sumaRetiros=parseInt(document.getElementById("divDineroRetirado").innerHTML) || 0;
+
+        dineroTotal=(dineroInicial+sumaIngresos)-sumaRetiros;
+
+        console.log("Dinero total actualizado:")
+        console.log(dineroTotal);
+
+        document.getElementById("divDineroTotal").innerHTML = `${dineroTotal}`;
+    }
+
+    function mostrarMovimientos(){
+
+        actualizarDineroTotal();
+        console.log("Dinero total actualizado para mostrar los movimientos.")
+
+        let dineroInicial=parseInt(document.getElementById("divDineroInicial").innerHTML) || 0;
+        let sumaIngresos=parseInt(document.getElementById("divDineroIngresado").innerHTML) || 0;
+        let sumaRetiros=parseInt(document.getElementById("divDineroRetirado").innerHTML) || 0;
+        let dineroTotal=parseInt(document.getElementById("divDineroTotal").innerHTML) || 0;
+
+
+        
+
+
+    }
+
+
+
 
 </script>
 
