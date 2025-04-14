@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en">
+<style>
+    h4 {
+        margin: 5px 0; /* Reduce los márgenes verticales */
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,27 +15,22 @@
 <body>
     <h1>Interfaz bancaria</h1>
     <hr>
-    <h3>Dinero Total: <button onclick="actualizarDineroTotal();">Actualizar</button></h3>
-    <div id="divDineroTotal"></div> 
-    <h3>Dinero Inicial:</h3>
-    <div id="divDineroInicial"></div>
-    <h3>Dinero Ingresado:</h3>
-    <div id="divDineroIngresado"></div>
-    <h3>Dinero Retirado:</h3>
-    <div id="divDineroRetirado"></div>
-    <hr>
-    <br>
     Dinero inicial: <input id="inputDineroInicial" type="number"> <button onclick="guardarSaldoInicial();">Guardar saldo inicial</button>
+    <br><br>
     <hr>
-    <br>
+    <h2>Panel de ingresos/retiradas</h2>
     <input id="inputDineroAIngresarOExtraer" type="number">
     <button onclick="ingresarDinero();">Ingresar</button>
     <button onclick="retirarDinero();">Extraer</button>
     <hr>
-    <button onclick="mostrarMovimientos();">Mostrar dinero total y movimientos :))))))</button>
+    <button onclick="actualizarDineroTotal();">Actualizar dinero total</button>   <button onclick="mostrarMovimientos();">Mostrar movimientos :))))))</button>
     <hr>
-    <div id="dineroTotal"></div>
-    <div id="saldoTexto"></div>
+    <h4>Dinero Total: <span id="divDineroTotal"></span></h4>
+    <h4>Dinero Inicial: <span id="divDineroInicial"></span></h4>
+    <h4>Dinero Ingresado: <span id="divDineroIngresado"></span></h4>    
+    <h4>Dinero Retirado: <span id="divDineroRetirado"></span></h4>
+    <hr> 
+    <div id="divMovimientos"></div>
 
 <script>
     let dineroInicial = 0;
