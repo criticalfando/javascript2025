@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nombre"><br><br>
+    <button onclick="guardar();">Guardar</button> <button onclick="crearDesdeArray();">Desde array</button>  <button onclick="mostrarYVolcar();">Mostrar y volcar a un array</button><br>
+</body>
+<script>
+    let nombres=new Set();
+
+    //Para construir el conjunto apartir de un array
+    function crearDesdeArray(){
+        let existentes=["a","b","c","d","e"];
+        let otro=new Set(existentes);
+        console.log(otro)
+    }
+
+    function guardar(){
+        if(nombres.has(document.getElementById("nombre").value)==true){
+            alert("Ya existe.")
+            limpiar();
+        }else{
+            nombres.add(document.getElementById("nombre").value)
+            limpiar();
+        }
+    }
+
+    function mostrarYVolcar(){
+        for(let n of nombres){
+            console.log(n);
+        }
+        //Volcar un conjunto a un array
+        let nuevoArray=[...nombres]
+        console.log(nuevoArray)
+
+    }
+
+    function limpiar(){
+            document.getElementById("nombre").value=""
+            document.getElementById("nombre").focus();
+        }
+</script>
+</html>

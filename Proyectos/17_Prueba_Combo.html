@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="selectCiudades">
+        <option value="10">Caceres</option>
+        <option>Madrid</option>
+        <option>Valencia</option>
+        <option>Segovia</option>
+        <option>Toledo</option>
+        <option>Zamora</option>
+    </select>
+    <br>
+    <button onclick="ver();">Ver seleccion</button>
+    
+</body>
+<script>
+    function ver(){
+        console.log(document.getElementById("selectCiudades").value)
+    }
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador</title>
+</head>
+<body onload="cargar();">
+    <select onchange="cargarDatos();" id="selectTematica">
+        <option>Todos</option>
+    </select>
+    <br><br>
+    <table id="resultados"></table>
+    
+<script>
+    let datos = [
+        {tematica:"deportes",url:"https://www.marca.es"},
+        {tematica:"libros",url:"https://www.puntolibro.es"},
+        {tematica:"cocina",url:"https://www.cocinahoy.es"},
+        {tematica:"cocina",url:"https://www.cocinamañana.es"},
+        {tematica:"juegos",url:"https://www.game.es"}
+    ];
+
+    function cargar(){   
+        // Crear un array solo para las tematicas  
+        let tematicas=[];
+        tematicas.push("Todos");
+        for(let d of datos){
+            tematicas.push(d.tematica)
+        }
+
+        // Crear un conjunto desde el array de tematicas para quitar las duplicadas
+        let conjuntoTematicas=new Set(tematicas);
+        let html=""
+        for(let c of conjuntoTematicas){
+            html=html+`<option>${c}</option>`;  
+        }
+        document.getElementById("selectTematica").innerHTML=html;
+    }
+
+    function cargarDatos(){
+        let seleccion=document.getElementById("selectTematica").value
+        let html="<tr><th>Tematica</th><th>Dirección</th></tr>";
+        for(let r of datos){
+            //Si el elemento coincide con la tematica seleccionada, o es igual a "Todos", habria que construir la fila.
+            if(r.tematica==seleccion||seleccion=="Todos"){
+            html=html+`<tr><td>${r.tematica}</td><td>${r.url}</td></tr>`;
+            }            
+        }
+        //volcado en la etiqueta tabla:
+        document.getElementById("resultados").innerHTML=html;
+    } 
+
+</script>
+
+</body>
+</html>

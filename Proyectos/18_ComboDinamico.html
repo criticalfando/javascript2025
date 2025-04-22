@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- onload en body, es una llamada a funcion al cargar la pagina -->
+<body onload="cargarCiudades();">
+    <select id="selectCiudades"></select>
+    <br>
+    <button onclick="ver();">Ver seleccion</button>
+    
+</body>
+<script>
+    let ciudades=["Caceres","Avila","Zamora","Cordoba","Zaragoza","Zamora"];
+    
+    function ver(){
+        console.log(document.getElementById("selectCiudades").value)
+    }
+
+// Se encarga de generar dinamicamente el contenido del select, en base al array de ciudades.
+// 
+    function cargarCiudades(){
+        let conjuntoCiudades=new Set(ciudades);
+        let html="";
+        for(let c of conjuntoCiudades){
+                html=html+`<option>${c}</option>`;
+                document.getElementById("selectCiudades").innerHTML=html;
+            }
+    }
+
+
+</script>
+</html>
