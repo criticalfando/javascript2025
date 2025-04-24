@@ -6,14 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-Abre la consola y pulsa el boton: <button id="objButton">¿Hola?</button><br>
-<hr>
-
     
 </body>
 <script>
-    objButton.addEventListener("click",
-        ()=> console.log("Hola")
-    )
+    
+    let contador=0
+
+    setTimeout(()=>console.log("Holas"),3000);
+
+    setInterval(()=>{
+        contador++;
+        console.log(contador);
+    },1000)
+
 </script>
 </html>

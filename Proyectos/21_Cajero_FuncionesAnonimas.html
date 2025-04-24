@@ -170,7 +170,7 @@
     let movimientos=[]
 
     document.getElementById("grabarSaldo").addEventListener("click",
-        function(){
+        ()=>{
             saldo=document.getElementById("saldoInicial").value;
             saldo=parseFloat(saldo);
             
@@ -184,7 +184,7 @@
     )
 
     document.getElementById("ingresar").addEventListener("click",
-        function(){
+        ()=>{
             let cantidad=parseFloat(document.getElementById("operaciones").value);
             saldo=saldo+cantidad;
             let concepto=document.getElementById("concepto").value
@@ -196,7 +196,7 @@
     )
 
     document.getElementById("retirar").addEventListener("click",
-        function(){
+        ()=>{
             let cantidad=parseFloat(document.getElementById("operaciones").value);
             saldo=saldo-cantidad;
             let concepto=document.getElementById("concepto").value
@@ -208,7 +208,7 @@
     )
 
         document.getElementById("mostrar").addEventListener("click",
-        function(){
+        ()=>{
             mostrarDinero();
             limpiar();
         }

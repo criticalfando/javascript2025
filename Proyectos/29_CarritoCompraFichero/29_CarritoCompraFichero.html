@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #totalComprado{
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Catalogo de productos</h1>
+    <b>Cargue el archivo ".json" del catalogo:</b>
+    <br>
+    <input type="file" id="archivoJSON" accept=".json"></input>
+    <hr>
+    <table id="tCatalogo"></table>
+    <hr>
+    <h1>Carrito</h1>
+    <div id="totalComprado"></div>
+    <hr>
+    <table id="carrito"></table>
+ 
+
+    
+</body>
+<script>
+
+    let catalogo=[];
+
+    let carrito=[];
+
+    document.getElementById("archivoJSON").addEventListener("change",(event)=>{
+            // Con esta instruccion recogemos el primer objeto seleccionado en el componente input
+        let fichero=event.target.files[0];
+            // Con esta instruccion creamos un objeto FileReader, que se encarga de leer datos de un fichero.
+        let lector=new FileReader();
+            // Sucesos que se van a producir durante la lectura del fichero.
+        // Representa el contenido del fichero.
+            lector.onload=(e)=>{
+            catalogo=JSON.parse(e.target.result);
+            // Se llama a la funcion que carga el catalogo para entregar los contenido a la tabla.
+            cargarCatalogo();
+        }
+        // En caso de error, la funcion a cumplir.
+             lector.onerror=()=>{
+            alert("Error al leer el archivo.")
+        }
+           //Leemos el contenido del fichero.
+            lector.readAsText(fichero);
+    })
+
+    function cargarCatalogo(){
+        let htmlCatalogo="<tr><th>Producto</th><th>Categoria</th><th>Precio</th></tr>";
+        catalogo.forEach((p,i)=>{
+        htmlCatalogo=htmlCatalogo+`<tr><td>${p.producto}</td><td>${p.categoria}</td><td>${p.precio}</td><td><button onclick="agregar(${i});"id="añadirCarrito">Agregar</button></td></tr>`
+        });        
+        document.getElementById("tCatalogo").innerHTML=htmlCatalogo
+    }
+
+    function agregar(i){
+        carrito.push(catalogo[i])
+        dibujarCarrito();     
+    }
+
+function dibujarCarrito(){
+    let htmlCarrito="<tr><th>Producto</th><th>Categoria</th><th>Precio</th></tr>";
+    carrito.forEach((p,i)=>{
+        htmlCarrito+=`<tr><td>${p.producto}</td><td>${p.categoria}</td><td>${p.precio}</td><td><button onclick="eliminar(${i});"id="eliminarCarrito">Eliminar</button></td></tr>`
+        });        
+        document.getElementById("carrito").innerHTML=htmlCarrito
+        sumarTotal();
+    };
+
+
+    function eliminar(i) {
+        carrito.splice(i, 1);
+        dibujarCarrito();
+    }  
+
+    function sumarTotal(){
+        let sumaCarrito=carrito.map(p=>p.precio).reduce((total,p)=>total+p,0)
+        document.getElementById("totalComprado").innerHTML="Precio total: "+sumaCarrito.toFixed(2)
+        };
+
+</script>
+</html>

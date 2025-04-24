@@ -1,3 +1,82 @@
 Link pizarra:
 
 https://drive.google.com/drive/folders/1yeeok34CsRPJbMwI5BkbnGkTGcj6kgMz
+
+//
+
+Funcion flecha (lambda)
+    Forma alternativa de escribir una funcion (anonima), mas simple y reducida.
+
+        function(){
+            console.log("Hello")
+        }
+
+|
+\/
+
+        Hay que colocar llaves en caso de haber mas de una instruccion
+
+    ()=>console.log("Hello")
+
+    (n)=>console.log(n)
+
+    -------------
+
+    funtion(n){
+        return n>0;
+    }
+
+|
+\/
+
+    (n)=> n>0;
+
+
+//////////
+
+
+
+.some(boolean) Indica si alguno de los elementos del array cumple la funcion
+
+.filter(boolean) Devuelve un nuevo array, con los elementos que cumplen la funcion.
+
+.forEach(function,indice) Aplica la funcion a cada elemento del array
+
+
+
+.reduce(operacion) Aplica la funcion a cada pareja de datos, hasta dejar un unico valor
+
+.map(transformacion) Transforma un array de datos en otro array, resultante de aplicar a cada dato la funcion.
+
+
+/////////
+
+Para que js escuche eventos:
+
+Identificador seteado
+
+id.addEventListener("click",funcion) Se ejecuta cuando haces click al objeto 
+
+document.addEventListener("DOMContentLoaded",funcion) - Se ejecuta una vez completada la carga de la pagina.
+
+
+////
+
+Temporizadores
+
+setTimeout(funcion, tiempo) - Pausa (tiempo) y ejecuta (funcion)
+
+setInterval(funcion, tiempo) - (funcion) se ejecuta cada (tiempo)
+
+
+//////
+
+para incluir un archivo externo
+
+<input type="file" id="file" accept="txt"></input>
+
+// REST APIS Country
+
+https://restcountries.com/v2/all
+
+Deberes: Continentes, Paises. Tabla de: Nombre, Capital, Poblacion y Bandera.

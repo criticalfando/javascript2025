@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    
+    <script>
+        let notas=[8.9,6.7,4.0,2.6,5.5,4.7,10.0]
+
+
+        //Mostramos los aprobados
+        notas.filter((n)=>n>5.0).forEach((n)=>console.log(`La siguiente nota ha aprobado: ${n}`))
+
+        //Compactar todos los numeros de un array usando la funcion reduce, y la operacion a realizar con ellos
+        notas.reduce((aux,n)=>aux+n)
+
+        //Mostramos la nota media utilizando la funcion reduce
+        let suma=notas.reduce((aux,n)=>aux+n)
+        let media=suma/notas.length;
+        console.log(`Nota media ${media}`)
+
+        //Recorre el array y quita un punto a cada nota
+        notas=notas.map(n=>n-1)
+        console.log(`Notas menos el punto: ${notas}`)
+
+    </script>
+</body>
+</html>
