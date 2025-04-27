@@ -2,6 +2,13 @@ Link pizarra:
 
 https://drive.google.com/drive/folders/1yeeok34CsRPJbMwI5BkbnGkTGcj6kgMz
 
+// Uso de Array JSON 
+
+let persona={"nombre":"ee","email":"email@ee.ee","edad":33};
+
+console.log(persona.edad) //devuelve 33
+
+
 //
 
 Funcion flecha (lambda)

@@ -6,11 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- ??????????? -->
     ¿Hasta que numero que sumar, empezando por 1, para alcanzar el valor 1000?
     <br>
     <button onclick="calcular();">Responder</button>
     <br>
     <div id="resultado"></div>
+    <div id="suma"></div>
 
 <script>
     function calcular(){
@@ -22,7 +24,11 @@
         }
         console.log(contador);
         console.log(suma);
-        document.getElementById("resultado")
+        let divResultado=document.getElementById("resultado")
+        divResultado.innerHTML="<b>"+contador+"</b>";
+    
+        let divSuma=document.getElementById("suma")
+        divSuma.innerHTML="<b>"+suma+"</b>"
     }
 
 </script>
